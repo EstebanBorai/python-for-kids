@@ -1,3 +1,17 @@
+# Prompts the user for going to checkout or continue with
+# add to cart looping
+def prompt_for_checkout():
+  while True:
+    should_stop = input('Proceed to checkout? (y/n): ')
+
+    if should_stop == 'y' or should_stop == 'Y':
+      return False
+    elif should_stop == 'n' or should_stop == 'N':
+      return True
+    else:
+      print ('error insert: y or n')
+      continue
+
 # Create a map where the key represents the product name and the value
 # is a tuple where the first item is the price of the product and the second
 # is the product stock
@@ -43,11 +57,9 @@ while ask_again:
     print('Error: Invalid product selected')
 
   # Prompt the user for stopping the proceedure
-  should_stop = input('Proceed to checkout? (y/n): ')
+  ask_again = prompt_for_checkout()
 
-  if should_stop == 'y':
-    ask_again = False
-    break
+
 
 # TODO: Print cart products similar to how its done for inventory
 #
